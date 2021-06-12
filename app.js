@@ -32,8 +32,8 @@
     let todoText = document.getElementById("todotext");
     if(todoText.value === ""){
       alert("タスクを入力してください。");
-      
     }else{
+      let newTask = todoText.value;
       event.preventDefault();
       const li = `<li class = "dotask"><span class="time">${output}</span><span class="tasks" id = ${newTask}>${newTask}</span><i class="fas fa-trash-alt fa-fw fa-2x delete faa-shake animated-hover" id="fonta"></i></li>`;
       document.getElementById('todos').insertAdjacentHTML('beforeend', li);
@@ -42,7 +42,7 @@
    
     
     // 追加したTODOを配列化
-    const newTask = document.getElementById('add-form').add.value;
+    // const newTask = document.getElementById('add-form').add.value;
     // let todo = [];
     // todo.push(newTask);
     // for(let item of todo) {
