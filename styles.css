@@ -1,0 +1,95 @@
+@charset "UTF-8";
+body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #10426e;
+  color: rgb(189, 182, 162);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+.container {
+  max-width: 800px;
+  margin: 175px auto 0 auto;  
+}
+
+header > h1 {
+  font-size: 96px;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+
+
+/* 記入欄 */
+label {
+  display: block;
+  margin: 64px auto 16px auto;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 400;
+}
+form {
+  text-align: center;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  margin-top: 16px;
+}
+
+input[type=text], 
+input[type=text]:focus {
+  color: #0a4375;
+  border: none;
+  background-color: rgb(190, 186, 175);
+  height: 48px;
+  border-radius: 8px;
+  width: 500px;
+ 
+  padding: 0;
+  border: none;
+}
+.btn {
+  display: block;
+  width: 128px;
+  height: 32px;
+  background-color: #906000;
+  color: rgb(189, 182, 162);
+  margin: 24px auto 0 auto;
+  border-radius: 8px;
+  padding: 0;
+
+}
+
+
+
+/* todoリスト */
+.dotask {
+  height: 64px;
+  background-color: rgb(190, 186, 175);
+  border-radius: 6px;
+  list-style: none;  
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.time {
+  color: #10426e;
+  font-size: 12px;
+  line-height: 64px;
+  margin-left: 24px;
+  font-weight: bolder;
+}
+.tasks {
+  color: #10426e;
+  line-height: 64px;
+  font-size: 32px;
+}
+.delete {
+  margin: 14px 12px 0 0;
+  color: #906000;
+}
