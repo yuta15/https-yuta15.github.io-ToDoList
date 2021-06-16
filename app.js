@@ -1,71 +1,60 @@
 'use strict'
 {
-  const now = new Date();
+    const now = new Date();
     const min = String(now.getMinutes()).padStart(2, '0');
     const hour = now.getHours();
     const day = now.getDate();
     const month = now.getMonth() + 1;
     const year = now.getFullYear();
     const output = `${year}/${month}/${day} ${hour}:${min}`;
+    const toDos = document.getElementById('todos');
+    let returnKey;
+    let returnTask;
+    // let localLength;
+    let obj = {}
+    
+    
+    let add = document.getElementById('add-form');
+    let submit = document.getElementById('submit');
 
+    // キーとLengthを受け取れば中身全部とってきてくれる関数。
+    
+    function b() {
+      for(let i = 0; i < localStorage.length; i++) {
+        returnTask =  localStorage.getItem(i);
+        let firstLi1 = `<li class = "dotask"><span class="time">${output}</span><span class="tasks" id = ${i}>${returnTask}</span><i class="fas fa-trash-alt fa-fw fa-2x delete faa-shake animated-hover" id="fonta"></i></li>`;
+        Up(firstLi1);
+      }
+    }
+    
+    
+    function Up(firstLi) {
+      toDos.insertAdjacentHTML('beforeend', firstLi);
+    }
+    b();
 
-
-
-  //localstrage出力
-  function local() {
-    for(let key in localStorage) {
-      if(localStorage.hasOwnProperty(key)){
-        // console.log(key);
-        const firstli = `<li class = "dotask"><span class="time">${output}</span><span class="tasks" id = ${key}>
-        ${key}</span><i class="fas fa-trash-alt fa-fw fa-2x delete faa-shake animated-hover" id="fonta"></i></li>`;
-        document.getElementById('todos').insertAdjacentHTML('beforeend', firstli);
-      };
-    };
-    // localStorage 
-  };
-  local();
- 
-  
-  
-  // フォーム入力、todo追加、
-  document.getElementById('add-form').onsubmit = function(event) {
-    let todoText = document.getElementById("todotext");
-    if(todoText.value === ""){
+    
+  submit.addEventListener('click', function(e){
+    let form = document.forms[0].elements[0];
+    let word = form.value;
+    if(word === ""){
       alert("タスクを入力してください。");
     }else{
-      let newTask = todoText.value;
-      event.preventDefault();
-      const li = `<li class = "dotask"><span class="time">${output}</span><span class="tasks" id = ${newTask}>${newTask}</span><i class="fas fa-trash-alt fa-fw fa-2x delete faa-shake animated-hover" id="fonta"></i></li>`;
-      document.getElementById('todos').insertAdjacentHTML('beforeend', li);
-      localStorage.setItem(`${newTask}`,`${li}`);
+      e.preventDefault();
+      let i = localStorage.length;
+      returnTask = word;
+      let firstLi2 = `<li class = "dotask"><span class="time">${output}</span><span class="tasks" id = ${i}>${returnTask}</span><i class="fas fa-trash-alt fa-fw fa-2x delete faa-shake animated-hover" id="fonta"></i></li>`;
+      localStorage.setItem(`${i}`,`${returnTask}`);
+      Up(firstLi2);
+      form.value = "";
     }
-   
-    
-    // 追加したTODOを配列化
-    // const newTask = document.getElementById('add-form').add.value;
-    // let todo = [];
-    // todo.push(newTask);
-    // for(let item of todo) {
-    //   console.log(item);
-    // }
-    
-    // リスト追加
-     // lacalstrage保存
-    //  console.log(localStorage.getItem(`${newTask}`));
+  }); 
 
 
-
-    // フォーム初期化
-    function crearText() {
-      let textForm = document.getElementById('todotext').value = '';
-    }
-    crearText();
-
-  }
 
   // todo削除
-  const list = document.getElementById('todos');
-  list.addEventListener('click', e => {
+  // const list = document.getElementById('todos');
+  toDos.addEventListener('click', e => {
     if(e.target.classList.contains('delete')) {
       e.target.parentElement.remove();
       const del = e.target.previousElementSibling.id
