@@ -27,14 +27,14 @@
       }
     }
     
-    
+
     function Up(firstLi) {
       toDos.insertAdjacentHTML('beforeend', firstLi);
     }
     b();
 
     
-  submit.addEventListener('click', function(e){
+  submit.addEventListener('click', e => {
     let form = document.forms[0].elements[0];
     let word = form.value;
     if(word === ""){
