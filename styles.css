@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 body {
   height: auto;
   margin: 0;
@@ -20,6 +21,7 @@ header > h1 {
   text-align: center;
   letter-spacing: 0.1em;
 }
+
 
 
 
@@ -49,7 +51,7 @@ input[type=text]:focus {
   height: 48px;
   border-radius: 8px;
   width: 500px;
- 
+  
   padding: 0;
   border: none;
 }
@@ -100,5 +102,42 @@ input[type=text]:focus {
 }
 .delete:hover {
   color: #b17e32e9;
+  
 }
 
+@media (max-width: 450px){
+  header > h1 {
+    font-size: 48px;
+  }
+  .container {
+    max-width: 400px;
+    margin: 85px auto 0 auto;  
+  }
+  label {
+    font-size: 48px;
+    
+  }
+  #todotext {
+    max-width: 350px;
+    height: 36px;
+  }
+  input[type=text], 
+  input[type=text]:focus {
+  width: 370px;
+ }
+ .dotask {
+   max-width: 350px;
+   margin: 32px auto 0 auto;
+   height: 48px;
+  }
+  .tasks {
+    font-size: 16px;
+    line-height: 50px;
+ }
+ .delete {
+   margin: 7px 7px 7px 0;
+ }
+ .time {
+   line-height: 50px;
+ }
+}
