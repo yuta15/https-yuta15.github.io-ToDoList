@@ -10,15 +10,11 @@
     const toDos = document.getElementById('todos');
     let returnKey;
     let returnTask;
-    // let localLength;
-    let obj = {}
-    
-    
+    let submit = document.getElementById("submit");
     let add = document.getElementById('add-form');
     let submit = document.getElementById('submit');
-
-    // キーとLengthを受け取れば中身全部とってきてくれる関数。
     
+// todo取り出し
     function b() {
       for(let i = 0; i < localStorage.length; i++) {
         returnTask =  localStorage.getItem(i);
@@ -26,14 +22,13 @@
         Up(firstLi1);
       }
     }
-    
-
+// todo表示関数。
     function Up(firstLi) {
       toDos.insertAdjacentHTML('beforeend', firstLi);
     }
     b();
-
-    
+   
+// todo入力、保存
   submit.addEventListener('click', e => {
     let form = document.forms[0].elements[0];
     let word = form.value;
@@ -49,8 +44,6 @@
       form.value = "";
     }
   }); 
-
-
 
   // todo削除
   // const list = document.getElementById('todos');
