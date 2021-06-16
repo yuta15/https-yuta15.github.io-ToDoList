@@ -12,7 +12,7 @@
     let returnTask;
     let submit = document.getElementById("submit");
     let add = document.getElementById('add-form');
-    let submit = document.getElementById('submit');
+
     
 // todo取り出し
     function b() {
